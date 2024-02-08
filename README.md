@@ -2,99 +2,32 @@
 ### Basic Code in Python with Turtle Graphics
 
 Objectives:
-* To become familiar with the terminal
-* To not get too scared when you see a github page
-* To see the Python interpreter in action and exit it when necessary
+* Describing Errors
+* To create repeatable code
+* To make use of variables to create copies in different locations
 
-Introduction
-We will start by seeing how we can make some basic programming instructions using the Python interpeter.  You can do much of your work in the terminal.
+You may have found the constant figuring out left and right turns and moving forward quite challenging to visualize from the perspective of the turtle.  Often this can cause real problems if you turn the wrong way.
 
-1. Open the Visual Studio Code Program
-2. Open a new terminal in Visual Studio Code.  You can do this from the main menu using the menu options: 
-```
-Terminal > New Terminal
-```
-3. The terminal is a command line environment.  You can see a "prompt" waiting for you to input a command.  Instead of a Graphical User Interface, everything is typed into the command line.  There are many commands for doing things like navigating around your computer, or viewing the contents of the local directory, or even modifying, deleting or copying files.  Sounds tedious, but there are some shortcuts!  Common ones:
-```
-    a. Up/Down Arrows: scrolls through previous commands
-    b. Tab - autocompletion
-```
-4. On a Windows computer, type in 
-```
-py
-```  
-On a Mac/Linux computer, type in
-```
-python3
-```
-this will start a python session. You will recognize it by the prompt (where you type in commands) turning into a 
-```
->>>
-```
-5. Type 
-```
-exit()
-```  
-Note that his is how you can exit from a python session. This is important because when we normally run programs from VSC, it will start a python session, and if one is open, it can't open another.  Knowing how to close a python session with exit() can be helpful
-6. Re-enter a python session and type in the following commands:
-```
-import turtle
-s = turtle.getscreen()
-```
+This results in an error from your planned code and presents an example of kinds of errors in programming:
 
-7. You may not notice it, but another window has opened up. It will look like this:
-![Turtle Graphics Image](turtlescreen.png)
-8. Let's create a turtle we can control using:
+### Sytax Error
+You probably found that sometimes the program would stop working and "crash" with an error.  This could occur if you enter some of the following commands:
 ```
-t = turtle.Turtle()
-t.forward(100)
+s = turtle.getScreen()  instead of s = turtle.getscreen()
+t.forward(30            instead of t.forward(30)
+t.forward()             instead of t.forward(20)
 ```
-9. The new turtle moves forward 100 pixels, dragging a pen behind it as it goes. Some of the other commands that you can use to move the turtle around include:
+A syntax error is an error that is caused because the interpreter is expecting a specific format or specific amounts of data, but gets incorrect commands or missing data.
+* Every bracket needs a closing bracket.
+* Commands are case sensitive
+* If a command is expecting some required data, it must get it or the program crashes.
 
-```
-t.right(<degrees>)
-t.left(<degrees>)
-These turn your turtle left or right the number of degrees you specify. Example: t.right(90)
-```
-```
-t.forward(<distance>)
-t.backward(<distance>)
-These are measured in pixels (short for pixel elements).  Each pixel is a single dot on your screen. Very tiny.  Example: t.forward(20)
-```
-```
-t.penup()
-t.pendown()
+### Semantic Errors
+Sometimes your program would run, just fine, but your perfect picture of a shape was all messed up because lines were going in wrong directions. Technically, this is not an error, because the program is working just fine, following all of the instructions you gave it.  However, it is not behaving as you intended.  This is called a semantic error, and the only solution is to figure out what steps in your planning were incorrect, and make a better version.
 
-This picks up or puts the pen down to allow the turtle to draw while it moves
-```
-```
-t.speed(<speed>)
-Makes your turtle move faster.  Speed should be a number. Example: t.speed(4)
-```
-```
-t.pencolor(<color>)
-Changes the color of the line.  It should be a color in quotation marks. Example: t.pencolor("red")
-```
-```
-t.setheading(<angle>)
-Sets the heading of the turtle to a specific degrees (0 is east, and increases counterclockwise.
-Example: t.setheading(0)
-```
+We will see that the Visual Studio Code Debugger will be able to help us identify syntax errors, but only rigorous testing can help us find Semantic Errors.
 
-10. Typing in your commands one at a time can be very tedious, so we can add the commands to a file.  Create a new file from the main menu using commands File > New Text File.  Type the following into the window.  The commands should look familiar!
-```
-import turtle
+## The goto(x,y) command
+Instead of using forward and left/right, we can use absolute positions on a grid, much like using a cartesian coordinate system to draw lines between 2 points.  Open the file goto.py for an example.  You can copy the code into your own program to see how it works.
 
-s = turtle.getscreen()
-```
-11. You will need to now safe the file with the correct file extension so that the computer knows it is a python program file.  Choose the menu options File > Save As and call the program "drawing.py" (almost anything as long as it has the .py extension at the end.)
-11. Run the program using the Menu Options Run > Start Debugging (note the hotkey option!)  You may need to follow the prompts to install a python debugger.  Alternatively, you can also click on the little play symbol in the top right of the window. It looks like this: ![Play Icon](play.png)
-12. You will notice that the program blips in and disappears very quickly.  That's because computers are fast. It is running the program, and when it is complete, it disappears.  We will introduce a pause into the program using the following command at the end of your program:
-```
-input()
-```
-13. Your program should look something like the contents of the file: 01.drawing.py
-14. Create a drawing using only the command included in this file.  Remember that your turtle will always start facing east in the middle of the screen, and you may want to penup and move to a new location before you start drawing.
-
-All finished? 
-Read through the document at https://realpython.com/beginners-guide-python-turtle/ and experiment with the turtle.
+## Creating reusable code
