@@ -30,4 +30,9 @@ We will see that the Visual Studio Code Debugger will be able to help us identif
 ## The goto(x,y) command
 Instead of using forward and left/right, we can use absolute positions on a grid, much like using a cartesian coordinate system to draw lines between 2 points.  Open the file goto.py for an example.  You can copy the code into your own program to see how it works.
 
-## Creating reusable code
+## Creating reusable code part 1
+Create an image using reusable code using the goto(x,y) command.
+Refer to your worksheet for helping you come up with the coordinates you need to find the relative positions of your coordinates.
+
+## Creating reusable code part 2
+Create another version of your same file using left/forward/right to make your shapes.  You will need to move your turtle to a new location prior to each shape.
